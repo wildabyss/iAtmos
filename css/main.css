@@ -39,10 +39,6 @@ body {
 	line-height: 34px;
 }
 
-.row {
-	padding: 10px 20px 10px 20px;
-}
-
 .panel-header{
 	text-align: left;
 }
@@ -50,6 +46,10 @@ body {
 input[type="text"]{
 	width: 80%;
 	text-align: center;
+}
+
+label{
+	font-weight: normal;
 }
 
 input.form-control{

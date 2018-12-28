@@ -34,7 +34,7 @@
 							<a class="navbar-brand">iAtmos</a>
 						</li>
 						<li class="active">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Unit<span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Units<span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li id="mnuImperial"><a href="#">Imperial</a></li>
 								<li id="mnuSI"><a href="#">SI</a></li>
@@ -55,30 +55,30 @@
 							<h3 class="panel-title">Speeds</h3>
 						</div>
 						<div class="panel-body">
-							<div class="row">
-								<p class="panel-header">Calibrated Airspeed (CAS)</p>
+							<div class="form-group speed">
+								<p class="panel-header control-label">Calibrated Airspeed (CAS)</p>
 								<input type="text" class="form-control" id="txtCAS" />
-								<div class="unit" id="txtCASUnit">kts</div>
+								<label class="control-label unit" id="txtCASUnit">kts</label>
 							</div>
-							<div class="row">
-								<p class="panel-header">Equivalent Airspeed (EAS)</p>
+							<div class="form-group speed">
+								<p class="panel-header control-label">Equivalent Airspeed (EAS)</p>
 								<input type="text" class="form-control" id="txtEAS" />
-								<div class="unit" id="txtEASUnit">kts</div>
+								<label class="control-label unit" id="txtEASUnit">kts</label>
 							</div>
-							<div class="row">
-								<p class="panel-header">True Airspeed (TAS)</p>
+							<div class="form-group speed">
+								<p class="panel-header control-label">True Airspeed (TAS)</p>
 								<input type="text" class="form-control" id="txtTAS" />
-								<div class="unit" id="txtTASUnit">kts</div>
+								<label class="control-label unit" id="txtTASUnit">kts</label>
 							</div>
-							<div class="row">
-								<p class="panel-header">Mach (M)</p>
+							<div class="form-group speed">
+								<p class="panel-header control-label">Mach (M)</p>
 								<input type="text" class="form-control" id="txtMach" />
-								<div class="unit" id="txtMachUnit">kts</div>
+								<label class="control-label unit"></label>
 							</div>
-							<div class="row">
-								<p class="panel-header">Speed of Sound (a)</p>
+							<div class="form-group">
+								<p class="panel-header control-label">Speed of Sound (a)</p>
 								<input type="text" class="form-control" id="txtA" readonly />
-								<div class="unit" id="txtUnitA">kts</div>
+								<label class="control-label unit" id="txtUnitA">kts</label>
 							</div>
 						</div>
 					</div>
@@ -88,20 +88,20 @@
 							<h3 class="panel-title">Temperature</h3>
 						</div>
 						<div class="panel-body">
-							<div class="row">
-								<p class="panel-header">Delta ISA (DISA)</p>
+							<div class="form-group temp">
+								<p class="panel-header control-label">Delta ISA (DISA)</p>
 								<input type="text" class="form-control" id="txtDISA" />
-								<div class="unit" id="txtUnitDISA">C</div>
+								<label class="control-label unit" id="txtUnitDISA">C</label>
 							</div>
-							<div class="row">
-								<p class="panel-header">Outside Air Temperature (OAT)</p>
+							<div class="form-group temp">
+								<p class="panel-header control-label">Outside Air Temperature (OAT)</p>
 								<input type="text" class="form-control" id="txtOAT" />
-								<div class="unit" id="txtUnitOAT">C</div>
+								<label class="control-label unit" id="txtUnitOAT">C</label>
 							</div>
-							<div class="row">
-								<p class="panel-header">Temperature Ratio (&theta;)</p>
+							<div class="form-group">
+								<p class="panel-header control-label">Temperature Ratio (&theta;)</p>
 								<input type="text" class="form-control" id="txtTheta" readonly />
-								<div class="unit">&nbsp;</div>
+								<label class="control-label unit"></label>
 							</div>
 						</div>
 					</div>
@@ -111,15 +111,15 @@
 							<h3 class="panel-title">Density</h3>
 						</div>
 						<div class="panel-body">
-							<div class="row">
-								<p class="panel-header">Air Density (&rho;)</p>
+							<div class="form-group">
+								<p class="panel-header control-label">Air Density (&rho;)</p>
 								<input type="text" class="form-control" id="txtRho" readonly />
-								<div class="unit" id="txtUnitRho">slug/cu.ft</div>
+								<label class="control-label unit">slug/cu.ft</label>
 							</div>
-							<div class="row">
-								<p class="panel-header">Density Ratio (&sigma;)</p>
+							<div class="form-group">
+								<p class="panel-header control-label">Density Ratio (&sigma;)</p>
 								<input type="text" class="form-control" id="txtSigma" readonly />
-								<div class="unit">&nbsp;</div>
+								<label class="control-label unit"></label>
 							</div>
 						</div>
 					</div>
@@ -131,35 +131,35 @@
 							<h3 class="panel-title">Pressure</h3>
 						</div>
 						<div class="panel-body">
-							<div class="row">
-								<p class="panel-header">Pressure Altitude (h)</p>
+							<div class="form-group">
+								<p class="panel-header control-label">Pressure Altitude (h)</p>
 								<input type="text" class="form-control" id="txtAlt" />
-								<div class="unit" id="txtUnitAlt">ft</div>
+								<label class="control-label unit" id="txtUnitAlt">ft</label>
 							</div>
-							<div class="row">
-								<p class="panel-header">Pressure Ratio (&delta;)</p>
+							<div class="form-group">
+								<p class="panel-header control-label">Pressure Ratio (&delta;)</p>
 								<input type="text" class="form-control" id="txtDelta" readonly />
-								<div class="unit">&nbsp;</div>
+								<label class="control-label unit"></label>
 							</div>
-							<div class="row">
-								<p class="panel-header">Static Pressure (P)</p>
+							<div class="form-group">
+								<p class="panel-header control-label">Static Pressure (P)</p>
 								<input type="text" class="form-control" id="txtP" readonly />
-								<div class="unit" id="txtUnitP">psf</div>
+								<label class="control-label unit" id="txtUnitP">psf</label>
 							</div>
-							<div class="row">
-								<p class="panel-header">Total Pressure (Pt)</p>
+							<div class="form-group">
+								<p class="panel-header control-label">Total Pressure (Pt)</p>
 								<input type="text" class="form-control" id="txtPt" readonly />
-								<div class="unit" id="txtUnitPt">psf</div>
+								<label class="control-label unit" id="txtUnitPt">psf</label>
 							</div>
-							<div class="row">
-								<p class="panel-header">Dynamic Pressure (q)</p>
+							<div class="form-group">
+								<p class="panel-header control-label">Dynamic Pressure (q)</p>
 								<input type="text" class="form-control" id="txtQ" readonly />
-								<div class="unit" id="txtUnitQ">psf</div>
+								<label class="control-label unit" id="txtUnitQ">psf</label>
 							</div>
-							<div class="row">
-								<p class="panel-header">Impact Pressure (qc)</p>
+							<div class="form-group">
+								<p class="panel-header control-label">Impact Pressure (qc)</p>
 								<input type="text" class="form-control" id="txtQc" readonly />
-								<div class="unit" id="txtUnitQc">psf</div>
+								<label class="control-label unit" id="txtUnitQc">psf</label>
 							</div>
 						</div>
 					</div>
@@ -169,15 +169,15 @@
 							<h3 class="panel-title">Viscosity</h3>
 						</div>
 						<div class="panel-body">
-							<div class="row">
-								<p class="panel-header">Dynamic Viscosity (&mu;)</p>
+							<div class="form-group">
+								<p class="panel-header control-label">Dynamic Viscosity (&mu;)</p>
 								<input type="text" class="form-control" id="txtMu" readonly />
-								<div class="unit" id="txtUnitMu">slug/ft/s</div>
+								<label class="control-label unit" id="txtUnitMu">slug/ft/s</label>
 							</div>
-							<div class="row">
-								<p class="panel-header">Kinematic Viscosity (&nu;)</p>
+							<div class="form-group">
+								<p class="panel-header control-label">Kinematic Viscosity (&nu;)</p>
 								<input type="text" class="form-control" id="txtNu" readonly />
-								<div class="unit" id="txtUnitNu">sq.ft/s</div>
+								<label class="control-label unit" id="txtUnitNu">sq.ft/s</label>
 							</div>
 						</div>
 					</div>
@@ -313,6 +313,12 @@
 					speed = "CAS";
 				
 					var CAS = parseFloat($(this).val());
+					if (isNaN(CAS)){
+						$(this).parent().addClass("has-error");
+						return;
+					} else {
+						$(".speed").removeClass("has-error");
+					}
 					var delta = parseFloat($("#txtDelta").val());
 					$("#txtQ").val((atmos.CAS2DynPres(CAS,delta,unit)).toFixed(3));
 					
@@ -322,6 +328,12 @@
 					speed = "EAS";
 				
 					var EAS = parseFloat($(this).val());
+					if (isNaN(EAS)){
+						$(this).parent().addClass("has-error");
+						return;
+					} else {
+						$(".speed").removeClass("has-error");
+					}
 					$("#txtQ").val((atmos.EAS2DynPres(EAS,unit)).toFixed(3));
 					
 					refresh(0);
@@ -330,6 +342,12 @@
 					speed = "TAS";
 				
 					var TAS = parseFloat($(this).val());
+					if (isNaN(TAS)){
+						$(this).parent().addClass("has-error");
+						return;
+					} else {
+						$(".speed").removeClass("has-error");
+					}
 					var sigma = parseFloat($("txtSigma").val());
 					$("#txtQ").val((atmos.TAS2DynPres(TAS,sigma,unit)).toFixed(3));
 					
@@ -339,6 +357,12 @@
 					speed = "Mach";
 				
 					var Mach = parseFloat($(this).val());
+					if (isNaN(Mach)){
+						$(this).parent().addClass("has-error");
+						return;
+					} else {
+						$(".speed").removeClass("has-error");
+					}
 					var delta = parseFloat($("#txtDelta").val());
 					$("#txtQ").val((atmos.Mach2DynPres(Mach,delta,unit)).toFixed(3));
 					
@@ -348,6 +372,12 @@
 					temp = "DISA";
 				
 					var DISA = parseFloat($(this).val());
+					if (isNaN(DISA)){
+						$(this).parent().addClass("has-error");
+						return;
+					} else {
+						$(".temp").removeClass("has-error");
+					}
 					var delta = parseFloat($("#txtDelta").val());
 					$("#txtTheta").val((atmos.Theta(delta,DISA)).toFixed(5));
 					
@@ -357,6 +387,12 @@
 					temp = "OAT";
 				
 					var OAT = parseFloat($(this).val());
+					if (isNaN(OAT)){
+						$(this).parent().addClass("has-error");
+						return;
+					} else {
+						$(".temp").removeClass("has-error");
+					}
 					var delta = parseFloat($("#txtDelta").val());
 					var DISA = atmos.OAT2DISA(OAT,delta);
 					$("#txtTheta").val((atmos.Theta(delta,DISA)).toFixed(5));
@@ -365,6 +401,12 @@
 				});
 				$("#txtAlt").change(function(){
 					var h = parseFloat($(this).val());
+					if (isNaN(h)){
+						$(this).parent().addClass("has-error");
+						return;
+					} else {
+						$(this).parent().removeClass("has-error");
+					}
 					if (unit == 1)
 						h = h*3.28084;
 					$("#txtDelta").val((atmos.Delta(h)).toFixed(5));
