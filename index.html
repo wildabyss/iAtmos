@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<!-- link rel="icon" href="../../favicon.ico" -->
+
+		<title>iAtmos</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="./css/bootstrap.min.css" rel="stylesheet">
+		<!-- Bootstrap theme -->
+		<link href="./css/bootstrap-theme.min.css" rel="stylesheet">
+		
+		<link href="./css/main.css" rel="stylesheet">
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	
+	<body>
+		<nav class="navbar navbar-expand-xl navbar-toggleable-xl navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div id="navbar" class="collapse navbar-collapse">
+					<ul class="nav navbar-nav navbar-left">
+						<li>
+							<a class="navbar-brand">iAtmos</a>
+						</li>
+						<li class="active">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Unit<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li id="mnuImperial"><a href="#">Imperial</a></li>
+								<li id="mnuSI"><a href="#">SI</a></li>
+							</ul>
+						</li>
+						<li><a href="mailto:jimmy.zy.lu@gmail.com">Contact</a></li>
+					</ul>
+				</div><!--/.nav-collapse -->
+			</div>
+		</nav>
+
+		<div class="container">
+
+			<div class="main">
+				<div class="col-sm-6">
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<h3 class="panel-title">Speeds</h3>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<p class="panel-header">Calibrated Airspeed (CAS)</p>
+								<input type="text" class="form-control" id="txtCAS" />
+								<div class="unit" id="txtCASUnit">kts</div>
+							</div>
+							<div class="row">
+								<p class="panel-header">Equivalent Airspeed (EAS)</p>
+								<input type="text" class="form-control" id="txtEAS" />
+								<div class="unit" id="txtEASUnit">kts</div>
+							</div>
+							<div class="row">
+								<p class="panel-header">True Airspeed (TAS)</p>
+								<input type="text" class="form-control" id="txtTAS" />
+								<div class="unit" id="txtTASUnit">kts</div>
+							</div>
+							<div class="row">
+								<p class="panel-header">Mach (M)</p>
+								<input type="text" class="form-control" id="txtMach" />
+								<div class="unit" id="txtMachUnit">kts</div>
+							</div>
+							<div class="row">
+								<p class="panel-header">Speed of Sound (a)</p>
+								<input type="text" class="form-control" id="txtA" readonly />
+								<div class="unit" id="txtUnitA">kts</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<h3 class="panel-title">Temperature</h3>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<p class="panel-header">Delta ISA (DISA)</p>
+								<input type="text" class="form-control" id="txtDISA" />
+								<div class="unit" id="txtUnitDISA">C</div>
+							</div>
+							<div class="row">
+								<p class="panel-header">Outside Air Temperature (OAT)</p>
+								<input type="text" class="form-control" id="txtOAT" />
+								<div class="unit" id="txtUnitOAT">C</div>
+							</div>
+							<div class="row">
+								<p class="panel-header">Temperature Ratio (&theta;)</p>
+								<input type="text" class="form-control" id="txtTheta" readonly />
+								<div class="unit">&nbsp;</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<h3 class="panel-title">Density</h3>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<p class="panel-header">Air Density (&rho;)</p>
+								<input type="text" class="form-control" id="txtRho" readonly />
+								<div class="unit" id="txtUnitRho">slug/cu.ft</div>
+							</div>
+							<div class="row">
+								<p class="panel-header">Density Ratio (&sigma;)</p>
+								<input type="text" class="form-control" id="txtSigma" readonly />
+								<div class="unit">&nbsp;</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-6">
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<h3 class="panel-title">Pressure</h3>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<p class="panel-header">Pressure Altitude (h)</p>
+								<input type="text" class="form-control" id="txtAlt" />
+								<div class="unit" id="txtUnitAlt">ft</div>
+							</div>
+							<div class="row">
+								<p class="panel-header">Pressure Ratio (&delta;)</p>
+								<input type="text" class="form-control" id="txtDelta" readonly />
+								<div class="unit">&nbsp;</div>
+							</div>
+							<div class="row">
+								<p class="panel-header">Static Pressure (P)</p>
+								<input type="text" class="form-control" id="txtP" readonly />
+								<div class="unit" id="txtUnitP">psf</div>
+							</div>
+							<div class="row">
+								<p class="panel-header">Total Pressure (Pt)</p>
+								<input type="text" class="form-control" id="txtPt" readonly />
+								<div class="unit" id="txtUnitPt">psf</div>
+							</div>
+							<div class="row">
+								<p class="panel-header">Dynamic Pressure (q)</p>
+								<input type="text" class="form-control" id="txtQ" readonly />
+								<div class="unit" id="txtUnitQ">psf</div>
+							</div>
+							<div class="row">
+								<p class="panel-header">Impact Pressure (qc)</p>
+								<input type="text" class="form-control" id="txtQc" readonly />
+								<div class="unit" id="txtUnitQc">psf</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<h3 class="panel-title">Viscosity</h3>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<p class="panel-header">Dynamic Viscosity (&mu;)</p>
+								<input type="text" class="form-control" id="txtMu" readonly />
+								<div class="unit" id="txtUnitMu">slug/ft/s</div>
+							</div>
+							<div class="row">
+								<p class="panel-header">Kinematic Viscosity (&nu;)</p>
+								<input type="text" class="form-control" id="txtNu" readonly />
+								<div class="unit" id="txtUnitNu">sq.ft/s</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div><!-- /.container -->
+	
+		<!-- load JS -->
+		<script src="./js/jquery.min.js"></script>
+		<script src="./js/bootstrap.min.js"></script>
+		<script src="./js/atmos.js"></script>
+		
+		<script>
+			var unit = 0;
+			
+			function refresh(){
+				// Refresh based on q, theta, delta
+				var q = parseFloat($("#txtQ").val());
+				var theta = parseFloat($("#txtTheta").val());
+				var delta = parseFloat($("#txtDelta").val());
+				
+				var sigma = atmos.Sigma(delta,theta);
+				$("#txtSigma").val(sigma.toFixed(5));
+				$("#txtRho").val((atmos.Density(sigma, unit)).toFixed(6));
+				$("#txtAlt").val((atmos.PressureAltitude(delta,unit)).toFixed(2));
+				var P = atmos.StaticPressure(delta,unit);
+				$("#txtP").val(P.toFixed(2));
+				$("#txtA").val((atmos.SpeedOfSound(theta,unit)).toFixed(2));
+				$("#txtOAT").val((atmos.OAT(theta)).toFixed(3));
+				$("#txtDISA").val((atmos.DISA(theta,delta)).toFixed(3));
+				$("#txtMu").val((atmos.Mu(theta,unit)).toExponential(4));
+				$("#txtNu").val((atmos.Nu(delta,theta,unit)).toExponential(4));
+				$("#txtTAS").val((atmos.DynPres2TAS(q,sigma,unit)).toFixed(2));
+				$("#txtEAS").val((atmos.DynPres2EAS(q,unit)).toFixed(2));
+				$("#txtMach").val((atmos.DynPres2Mach(q,delta,unit)).toFixed(4));
+				var qc = atmos.DynPres2ImpactPres(q,delta,unit);
+				$("#txtQc").val(qc.toFixed(2));
+				$("#txtCAS").val((atmos.ImpactPres2CAS(qc,unit)).toFixed(2));
+				$("#txtPt").val((atmos.TotalPressure(P,qc)).toFixed(2));
+			}
+		
+			function setImperial(){
+				unit = 0;
+				
+				$("#mnuImperial").addClass("active");
+				$("#mnuSI").removeClass("active");
+				$("#txtCASUnit").text("kts");
+				$("#txtEASUnit").text("kts");
+				$("#txtTASUnit").text("kts");
+				$("#txtUnitA").text("kts");
+				$("#txtUnitRho").text("slug/cu.ft");
+				$("#txtUnitAlt").text("ft");
+				$("#txtUnitP").text("psf");
+				$("#txtUnitPt").text("psf");
+				$("#txtUnitQ").text("psf");
+				$("#txtUnitQc").text("psf");
+				$("#txtUnitMu").text("slug/ft/s");
+				$("#txtUnitNu").text("sq.ft/s");
+				
+				refresh();
+			}
+			
+			function setSI(){
+				unit = 1;
+			
+				$("#mnuImperial").removeClass("active");
+				$("#mnuSI").addClass("active");
+				$("#txtCASUnit").text("m/s");
+				$("#txtEASUnit").text("m/s");
+				$("#txtTASUnit").text("m/s");
+				$("#txtUnitA").text("m/s");
+				$("#txtUnitRho").text("kg/cu.m");
+				$("#txtUnitAlt").text("m");
+				$("#txtUnitP").text("Pa");
+				$("#txtUnitPt").text("Pa");
+				$("#txtUnitQ").text("Pa");
+				$("#txtUnitQc").text("Pa");
+				$("#txtUnitMu").text("Pa*s");
+				$("#txtUnitNu").text("sq.m/s");
+				
+				refresh();
+			}
+		
+			$(document).ready(function(){
+				// add events
+				$("#mnuImperial > a").click(setImperial);
+				$("#mnuSI > a").click(setSI);
+				$("#txtCAS").change(function(){
+					var CAS = parseFloat($(this).val());
+					var delta = parseFloat($("#txtDelta").val());
+					$("#txtQ").val((atmos.CAS2DynPres(CAS,delta,unit)).toFixed(3));
+					
+					refresh();
+				});
+				$("#txtEAS").change(function(){
+					var EAS = parseFloat($(this).val());
+					$("#txtQ").val((atmos.EAS2DynPres(EAS,unit)).toFixed(3));
+					
+					refresh();
+				});
+				$("#txtTAS").change(function(){
+					var TAS = parseFloat($(this).val());
+					var sigma = parseFloat($("txtSigma").val());
+					$("#txtQ").val((atmos.TAS2DynPres(TAS,sigma,unit)).toFixed(3));
+					
+					refresh();
+				});
+				$("#txtMach").change(function(){
+					var Mach = parseFloat($(this).val());
+					var delta = parseFloat($("#txtDelta").val());
+					$("#txtQ").val((atmos.Mach2DynPres(Mach,delta,unit)).toFixed(3));
+					
+					refresh();
+				});
+				$("#txtDISA").change(function(){
+					var DISA = parseFloat($(this).val());
+					var delta = parseFloat($("#txtDelta").val());
+					$("#txtTheta").val((atmos.Theta(delta,DISA)).toFixed(5));
+					
+					refresh();
+				});
+				$("#txtOAT").change(function(){
+					var OAT = parseFloat($(this).val());
+					var delta = parseFloat($("#txtDelta").val());
+					var DISA = atmos.OAT2DISA(OAT,delta);
+					$("#txtTheta").val((atmos.Theta(delta,DISA)).toFixed(5));
+					
+					refresh();
+				});
+				$("#txtAlt").change(function(){
+					var h = parseFloat($(this).val());
+					$("#txtDelta").val((atmos.Delta(h)).toFixed(5));
+					
+					refresh();
+				});
+				
+				// initialize
+				$("#txtTheta").val((1).toFixed(5));
+				$("#txtDelta").val((1).toFixed(5));
+				$("#txtSigma").val((1).toFixed(5));
+				$("#txtQ").val((0).toFixed(3));
+				setImperial();
+			});
+		</script>
+	</body>
+</html>
