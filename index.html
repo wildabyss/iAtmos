@@ -7,7 +7,7 @@
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<!-- link rel="icon" href="../../favicon.ico" -->
+		<link rel="icon" href="./favicon.png">
 
 		<title>iAtmos</title>
 
@@ -193,14 +193,47 @@
 		
 		<script>
 			var unit = 0;
+			var speed = "CAS";
+			var temp = "DISA";
 			
 			function refresh(){
-				// Refresh based on q, theta, delta
-				var q = parseFloat($("#txtQ").val());
-				var theta = parseFloat($("#txtTheta").val());
+				// Refresh based on most recent changes
+
 				var delta = parseFloat($("#txtDelta").val());
 				
+				var theta = 0;
+				if (temp == "DISA"){
+					var DISA = parseFloat($("#txtDISA").val());
+					theta = atmos.Theta(delta,DISA);
+					$("#txtTheta").val(theta.toFixed(5));
+				} else {
+					var OAT = parseFloat($("#txtOAT").val());
+					var DISA = atmos.OAT2DISA(OAT,delta);
+					theta = atmos.Theta(delta,DISA);
+					$("#txtTheta").val(theta.toFixed(5));
+				}
+				
 				var sigma = atmos.Sigma(delta,theta);
+				var q = 0;
+				if (speed=="CAS"){
+					var CAS = parseFloat($("#txtCAS").val());
+					q = atmos.CAS2DynPres(CAS,delta,unit);
+					$("#txtQ").val(q.toFixed(3));
+				} else if (speed == "EAS"){
+					var EAS = parseFloat($("#txtEAS").val());
+					q = atmos.EAS2DynPres(EAS,unit);
+					$("#txtQ").val(q.toFixed(3));
+				} else if (speed == "TAS"){
+					var TAS = parseFloat($("#txtTAS").val());
+					q = atmos.TAS2DynPres(TAS,sigma,unit);
+					$("#txtQ").val(q.toFixed(3));
+				} else {
+					var Mach = parseFloat($("#txtMach").val());
+					q = atmos.Mach2DynPres(Mach,delta,unit);
+					$("#txtQ").val(q.toFixed(3));
+				}
+				
+				
 				$("#txtSigma").val(sigma.toFixed(5));
 				$("#txtRho").val((atmos.Density(sigma, unit)).toFixed(6));
 				$("#txtAlt").val((atmos.PressureAltitude(delta,unit)).toFixed(2));
@@ -267,6 +300,8 @@
 				$("#mnuImperial > a").click(setImperial);
 				$("#mnuSI > a").click(setSI);
 				$("#txtCAS").change(function(){
+					speed = "CAS";
+				
 					var CAS = parseFloat($(this).val());
 					var delta = parseFloat($("#txtDelta").val());
 					$("#txtQ").val((atmos.CAS2DynPres(CAS,delta,unit)).toFixed(3));
@@ -274,12 +309,16 @@
 					refresh();
 				});
 				$("#txtEAS").change(function(){
+					speed = "EAS";
+				
 					var EAS = parseFloat($(this).val());
 					$("#txtQ").val((atmos.EAS2DynPres(EAS,unit)).toFixed(3));
 					
 					refresh();
 				});
 				$("#txtTAS").change(function(){
+					speed = "TAS";
+				
 					var TAS = parseFloat($(this).val());
 					var sigma = parseFloat($("txtSigma").val());
 					$("#txtQ").val((atmos.TAS2DynPres(TAS,sigma,unit)).toFixed(3));
@@ -287,6 +326,8 @@
 					refresh();
 				});
 				$("#txtMach").change(function(){
+					speed = "Mach";
+				
 					var Mach = parseFloat($(this).val());
 					var delta = parseFloat($("#txtDelta").val());
 					$("#txtQ").val((atmos.Mach2DynPres(Mach,delta,unit)).toFixed(3));
@@ -294,6 +335,8 @@
 					refresh();
 				});
 				$("#txtDISA").change(function(){
+					temp = "DISA";
+				
 					var DISA = parseFloat($(this).val());
 					var delta = parseFloat($("#txtDelta").val());
 					$("#txtTheta").val((atmos.Theta(delta,DISA)).toFixed(5));
@@ -301,6 +344,8 @@
 					refresh();
 				});
 				$("#txtOAT").change(function(){
+					temp = "OAT";
+				
 					var OAT = parseFloat($(this).val());
 					var delta = parseFloat($("#txtDelta").val());
 					var DISA = atmos.OAT2DISA(OAT,delta);
@@ -316,10 +361,9 @@
 				});
 				
 				// initialize
-				$("#txtTheta").val((1).toFixed(5));
+				$("#txtDISA").val((0).toFixed(5));
 				$("#txtDelta").val((1).toFixed(5));
-				$("#txtSigma").val((1).toFixed(5));
-				$("#txtQ").val((0).toFixed(3));
+				$("#txtCAS").val((0).toFixed(3));
 				setImperial();
 			});
 		</script>
