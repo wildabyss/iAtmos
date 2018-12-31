@@ -2,6 +2,22 @@ var atmos = {
 	// Singleton class for transforming Standard Atmosphere variables
 	// Author: Jimmy Lu
 	
+	ReynoldsNumber: function(rho, mu, TAS, L, unit){
+		// Calculate Re
+		//
+		// Inputs:  rho: slug/cu.ft for imperial, kg/cu.m for SI
+		//          mu: slug/ft/s for imperial, Pa.sec for SI
+		//          TAS: kt for imperial, m/s for SI
+		//          L: ft for imperial, m for SI
+		//          unit: 0 for imperial, 1 for SI
+		// Output:  Re
+		
+		if (unit == 0)
+			TAS = TAS*1.68781;
+		
+		return rho*TAS*L/mu;
+	},
+	
 	Density: function(sigma, unit){
 		// Calculate the density given density ratio
 		//
